@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="보안에 관심 있는 정보보호학과 학생 이승준의 포트폴리오">
+  <title>이승준 | 포트폴리오</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+
+  <!-- ===== 상단 네비게이션 ===== -->
+  <header class="header">
+    <nav class="nav container" aria-label="주요 메뉴">
+      <a href="#home" class="logo">LSJ<span class="cursor">_</span></a>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#home" class="nav-link">소개</a></li>
+        <li><a href="#learning" class="nav-link">배우는 것</a></li>
+        <li><a href="#projects" class="nav-link">프로젝트</a></li>
+        <li><a href="#goals" class="nav-link">목표</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- 다크모드 토글 버튼 -->
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="다크모드 전환">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <!-- 모바일 메뉴 버튼 -->
+        <button class="icon-btn menu-btn" id="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="nav-menu">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== 1. 소개 ===== -->
+    <section class="hero container" id="home">
+      <div class="avatar" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="56" height="56">
+          <rect x="5" y="11" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="12" cy="16" r="1.5" fill="currentColor"/>
+        </svg>
+      </div>
+
+      <p class="hero-tag">정보보호학과 2학년</p>
+      <h1 class="hero-name">이승준</h1>
+      <p class="hero-intro">보안에 관심을 갖고 기초부터 하나씩 공부하고 있는 정보보호학과 학생입니다.</p>
+
+      <h2 class="sub-title">관심 분야</h2>
+      <ul class="interest-list">
+        <li class="interest">
+          <strong>웹 보안</strong>
+          <span>SQL 인젝션, XSS 같은 기본적인 웹 취약점이 왜 생기고 어떻게 막는지</span>
+        </li>
+        <li class="interest">
+          <strong>네트워크 패킷 분석</strong>
+          <span>데이터가 네트워크에서 실제로 어떤 모습으로 오가는지</span>
+        </li>
+        <li class="interest">
+          <strong>암호 기초</strong>
+          <span>간단한 암호부터 HTTPS까지, 정보를 안전하게 지키는 원리</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ===== 2. 배우고 있는 것 ===== -->
+    <section class="section container reveal" id="learning">
+      <h2 class="section-title"><span class="prompt">$</span> 배우고 있는 것</h2>
+      <p class="section-desc">이번 학기 전공 수업에서 공부하고 있는 내용입니다.</p>
+
+      <div class="card-grid">
+        <article class="card">
+          <p class="card-label">C 알고리즘</p>
+          <h3>C 언어로 알고리즘 구현하기</h3>
+          <p>정렬, 탐색 같은 기본 알고리즘을 C로 직접 작성하고, 코드가 어떻게 동작하는지 말로 설명하는 연습을 하고 있습니다. 포인터와 메모리 구조는 메모리 취약점 공부의 기초라서 특히 신경 쓰고 있습니다.</p>
+        </article>
+
+        <article class="card">
+          <p class="card-label">웹 서버 프로그래밍</p>
+          <h3>웹 서버의 동작 구조</h3>
+          <p>브라우저의 요청을 서버가 받아 응답을 돌려주는 흐름을 배우고 있습니다. 이 과목의 팀 프로젝트로 직접 웹 서비스를 만들어 볼 예정입니다.</p>
+        </article>
+
+        <article class="card">
+          <p class="card-label">패킷 분석</p>
+          <h3>Wireshark로 패킷 들여다보기</h3>
+          <p>네트워크 패킷을 캡처해서 TCP, HTTP 같은 프로토콜이 실제로 어떻게 주고받아지는지 확인하는 실습을 하고 있습니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== 3. 프로젝트 ===== -->
+    <section class="section container reveal" id="projects">
+      <h2 class="section-title"><span class="prompt">$</span> 프로젝트</h2>
+      <p class="section-desc">작은 것부터 직접 만들어 보면서 배우고 있습니다.</p>
+
+      <!-- 필터 버튼 -->
+      <div class="filter" role="group" aria-label="프로젝트 상태 필터">
+        <button class="filter-btn active" type="button" data-filter="all">전체</button>
+        <button class="filter-btn" type="button" data-filter="done">완료</button>
+        <button class="filter-btn" type="button" data-filter="doing">진행 중</button>
+        <button class="filter-btn" type="button" data-filter="planned">예정</button>
+      </div>
+
+      <div class="card-grid">
+        <article class="card project" data-status="done">
+          <span class="badge badge-done">완료</span>
+          <h3>개인 포트폴리오 사이트</h3>
+          <p>지금 보고 계신 사이트입니다. HTML, CSS, JavaScript로 만들고 GitHub와 Vercel로 배포했습니다. 보안 전공자로서 개인정보는 최소한만 공개하고, CSP 같은 보안 헤더를 적용했습니다.</p>
+          <ul class="tags">
+            <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Vercel</li>
+          </ul>
+        </article>
+
+        <article class="card project" data-status="doing">
+          <span class="badge badge-doing">진행 중</span>
+          <h3>웹프로그래밍 팀 프로젝트</h3>
+          <p>웹 서버 프로그래밍 수업의 팀 프로젝트입니다. 흔한 게시판이 아닌 주제로 고민하고 있으며, 완성되면 이곳에 내용을 추가할 예정입니다.</p>
+          <ul class="tags">
+            <li>팀 프로젝트</li><li>주제 선정 중</li>
+          </ul>
+        </article>
+
+        <article class="card project" data-status="planned">
+          <span class="badge badge-planned">예정</span>
+          <h3>C로 만드는 카이사르 암호</h3>
+          <p>문자열을 입력받아 암호화·복호화하는 프로그램을 C로 만들고, 가능한 키를 전부 대입해서 직접 깨 보는 것까지 해 볼 계획입니다. 단순한 암호가 왜 안전하지 않은지 확인하는 게 목표입니다.</p>
+          <ul class="tags">
+            <li>C</li><li>암호 기초</li>
+          </ul>
+        </article>
+
+        <article class="card project" data-status="planned">
+          <span class="badge badge-planned">예정</span>
+          <h3>HTTP vs HTTPS 패킷 비교</h3>
+          <p>실습용 환경에서 HTTP와 HTTPS로 로그인 요청을 보내고 Wireshark로 캡처해, 평문으로 보이는 데이터와 암호화된 데이터의 차이를 비교해 볼 계획입니다.</p>
+          <ul class="tags">
+            <li>Wireshark</li><li>네트워크</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== 4. 목표 & 앞으로 공부할 것 ===== -->
+    <section class="section container reveal" id="goals">
+      <h2 class="section-title"><span class="prompt">$</span> 목표</h2>
+
+      <ol class="timeline">
+        <li class="timeline-item">
+          <p class="timeline-when">지금</p>
+          <h3>전공 기초 다지기</h3>
+          <p>이번 학기 전공 세 과목(C 알고리즘, 웹 서버 프로그래밍, 패킷 분석)의 기초를 확실하게 잡는 것이 첫 번째 목표입니다.</p>
+        </li>
+        <li class="timeline-item">
+          <p class="timeline-when">다음 단계</p>
+          <h3>직접 만들고, 직접 지켜 보기</h3>
+          <p>좋아하는 게임인 슬레이 더 스파이어 2의 통계 사이트를 만들어 보고 싶습니다. 기능보다 먼저 입력값 검증 같은 보안 기본기를 제대로 갖춘 사이트로 만드는 것이 목표입니다.</p>
+        </li>
+        <li class="timeline-item">
+          <p class="timeline-when">앞으로</p>
+          <h3>보안 엔지니어로 성장하기</h3>
+          <p>실력을 꾸준히 쌓아 보안 분야로 취업하고, 스스로 설 수 있는 엔지니어가 되고 싶습니다.</p>
+        </li>
+      </ol>
+
+      <h2 class="sub-title">앞으로 공부할 것</h2>
+      <ul class="study-list">
+        <li><span class="check" aria-hidden="true"></span>리눅스 기본 명령어와 터미널 사용</li>
+        <li><span class="check" aria-hidden="true"></span>네트워크 기초 (TCP/IP, HTTP)</li>
+        <li><span class="check" aria-hidden="true"></span>웹 취약점 기초 (OWASP Top 10)</li>
+        <li><span class="check" aria-hidden="true"></span>워게임으로 웹 해킹 기초 문제 풀어 보기</li>
+        <li><span class="check" aria-hidden="true"></span>Git과 GitHub로 코드 관리하기</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- ===== 하단 ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="https://github.com/sjunlee0116" class="github-link" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/>
+        </svg>
+        github.com/sjunlee0116
+      </a>
+      <p class="footer-note">HTML · CSS · JavaScript로 제작 · Vercel로 배포</p>
+    </div>
+  </footer>
+
+</body>
+</html>

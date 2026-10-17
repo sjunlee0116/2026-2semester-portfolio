@@ -1,0 +1,543 @@
+/* =========================================
+   색상 변수 (라이트 / 다크 모드)
+   ========================================= */
+:root {
+  --bg: #f6f8fa;
+  --surface: #ffffff;
+  --text: #1c2430;
+  --text-muted: #5a6573;
+  --border: #dde3ea;
+  --accent: #0f8a5f;
+  --accent-soft: #e3f4ec;
+  --doing: #b7791f;
+  --doing-soft: #fbf0dc;
+  --planned: #4a6fa5;
+  --planned-soft: #e5edf8;
+  --shadow: 0 1px 3px rgba(20, 30, 45, 0.08);
+  --mono: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --sans: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+}
+
+/* 사용자가 다크모드를 선택했을 때 */
+:root[data-theme="dark"] {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --text: #e6edf3;
+  --text-muted: #9aa5b1;
+  --border: #2a323d;
+  --accent: #3ddc97;
+  --accent-soft: #12352a;
+  --doing: #e3b341;
+  --doing-soft: #3a2e12;
+  --planned: #79a6e8;
+  --planned-soft: #1a2a40;
+  --shadow: none;
+}
+
+/* 따로 선택하지 않았으면 기기 설정(다크모드)을 따름 */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --text: #e6edf3;
+    --text-muted: #9aa5b1;
+    --border: #2a323d;
+    --accent: #3ddc97;
+    --accent-soft: #12352a;
+    --doing: #e3b341;
+    --doing-soft: #3a2e12;
+    --planned: #79a6e8;
+    --planned-soft: #1a2a40;
+    --shadow: none;
+  }
+}
+
+/* =========================================
+   기본 설정
+   ========================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px; /* 고정 헤더에 제목이 가려지지 않게 */
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.7;
+  transition: background 0.2s, color 0.2s;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* =========================================
+   헤더 / 네비게이션
+   ========================================= */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.logo {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+.cursor {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.nav-menu {
+  display: flex;
+  gap: 28px;
+}
+
+.nav-link {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--accent);
+}
+
+.nav-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.icon-btn:hover {
+  border-color: var(--accent);
+}
+
+/* 다크모드 아이콘: 지금 모드에 따라 하나만 보이게 */
+.icon-moon { display: none; }
+:root[data-theme="dark"] .icon-sun { display: none; }
+:root[data-theme="dark"] .icon-moon { display: block; }
+
+.menu-btn {
+  display: none; /* PC에서는 숨김 */
+}
+
+/* =========================================
+   1. 소개 (히어로)
+   ========================================= */
+.hero {
+  padding-top: 80px;
+  padding-bottom: 72px;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  margin-bottom: 24px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.hero-tag {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+.hero-name {
+  margin: 4px 0 12px;
+  font-size: 2.6rem;
+  line-height: 1.2;
+}
+
+.hero-intro {
+  max-width: 560px;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+.sub-title {
+  margin: 44px 0 16px;
+  font-size: 1.1rem;
+}
+
+.interest-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.interest {
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.interest strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.interest span {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* =========================================
+   공통 섹션
+   ========================================= */
+.section {
+  padding-top: 64px;
+  padding-bottom: 64px;
+  border-top: 1px solid var(--border);
+}
+
+.section-title {
+  font-size: 1.6rem;
+}
+
+.prompt {
+  margin-right: 8px;
+  font-family: var(--mono);
+  color: var(--accent);
+}
+
+.section-desc {
+  margin: 6px 0 28px;
+  color: var(--text-muted);
+}
+
+/* =========================================
+   카드
+   ========================================= */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+
+.card h3 {
+  font-size: 1.1rem;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.card-label {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+}
+
+.card .card-label {
+  color: var(--accent);
+}
+
+/* 프로젝트 상태 뱃지 */
+.badge {
+  align-self: flex-start;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.badge-done    { background: var(--accent-soft);  color: var(--accent); }
+.badge-doing   { background: var(--doing-soft);   color: var(--doing); }
+.badge-planned { background: var(--planned-soft); color: var(--planned); }
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto; /* 태그를 카드 아래쪽으로 */
+  padding-top: 6px;
+}
+
+.tags li {
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* 필터 버튼 */
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.filter-btn {
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.filter-btn:hover {
+  border-color: var(--accent);
+}
+
+.filter-btn.active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.project.hidden {
+  display: none;
+}
+
+/* =========================================
+   4. 목표 (타임라인)
+   ========================================= */
+.timeline {
+  position: relative;
+  margin-top: 28px;
+  padding-left: 28px;
+  border-left: 2px solid var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 28px;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+/* 타임라인의 동그라미 점 */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: -36px;
+  width: 14px;
+  height: 14px;
+  border: 3px solid var(--accent);
+  border-radius: 50%;
+  background: var(--bg);
+}
+
+.timeline-when {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
+.timeline-item h3 {
+  margin: 2px 0 6px;
+  font-size: 1.1rem;
+}
+
+.timeline-item p:last-child {
+  color: var(--text-muted);
+}
+
+.study-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 24px;
+}
+
+.study-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.check {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+}
+
+/* =========================================
+   하단
+   ========================================= */
+.footer {
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+}
+
+.github-link:hover {
+  color: var(--accent);
+}
+
+.footer-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* =========================================
+   스크롤 애니메이션 (아래에서 올라오는 효과)
+   ========================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s, transform 0.6s;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* 움직임 줄이기 설정을 켠 사용자에게는 애니메이션 끔 */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .cursor { animation: none; }
+}
+
+/* =========================================
+   반응형 (태블릿 / 모바일)
+   ========================================= */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: flex;
+  }
+
+  /* 모바일 메뉴: 기본은 숨기고, 버튼을 누르면 펼침 */
+  .nav-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 20px 16px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    display: none;
+  }
+
+  .nav-menu.open {
+    display: flex;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 10px 0;
+  }
+
+  .hero {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .hero-name {
+    font-size: 2.1rem;
+  }
+
+  .interest-list,
+  .study-list {
+    grid-template-columns: 1fr;
+  }
+}
